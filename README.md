@@ -11,6 +11,9 @@ Create, Read, Update, Delete opeartions can be performed.
 # Get Started
 
 cd Task-Manager
+
 npm install
+
 npm start
+
 starts running on port 8000

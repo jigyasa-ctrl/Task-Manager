@@ -1,4 +1,3 @@
-const { findOneAndDelete } = require('../models/Task')
 const Task = require('../models/Task')
 
 const getAll = async (req, res) => {
@@ -33,8 +32,20 @@ const getTask = async (req, res) => {
 
 }
 
-const updateTask = (req, res) => {
-    res.send('update task')
+const updateTask = async (req, res) => {
+    try {
+        const { id: taskID } = req.params;
+        const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
+            new: true,
+            runValidator: true
+        })
+        if (!task) {
+            return res.status(404).json({ msg: `No task for id ${taskID}` })
+        }
+        return res.status(200).json({ task })
+    } catch (error) {
+        return res.status(500).json({ msg: error })
+    }
 }
 
 const deleteTask = async (req, res) => {

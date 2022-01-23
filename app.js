@@ -5,12 +5,14 @@ const app = express()
 const router = require('./routes/Task')
 const connectDB = require('./db/connect')
 require('dotenv').config() // to import dotenv package in project, don't need to assign it to any variable
+//static assets 
+app.use(express.static('./public'))
 
 //middleware 
 app.use(express.json())
 
 //routes
-app.use(express.static('./public'))
+
 app.use("/api/v1/tasks", router)
 const PORT = 8000;
 const start = async () => {

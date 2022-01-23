@@ -2,7 +2,7 @@
 
 Task Manager with NodeJS, ExpressJS and MongoDB
 
-Create, Read, Update, Delete opeartions can be performed.
+Manage your Daily tasks while you can perform Create, Read, Update, Delete opeartions.
 
 ![](/Screenshot1.png)
 
